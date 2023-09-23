@@ -5,15 +5,16 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-    
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.deepPurple,
+        ),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -22,9 +23,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -33,29 +32,26 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var selectedValute = "Yemen";
-
-
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(),
       drawer: Drawer(),
-      body: Center(
-        child: DropdownButton(
-          items: ["Yemen","USA","UKA"]
-          .map((e) => DropdownMenuItem(child: Text("$e"),value: e,)).toList(),
-          onChanged: (value) {
-            setState(() {
-              selectedValute=value!;
-            });
-            
-          },
-          value:selectedValute ,
+      body: Column(
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: const Text("Hello Yousif"),
+                  duration: const Duration(seconds: 3),
+                ),
+              );
+            },
+            child: const Text("Press Here"),
           ),
-      )
+        ],
+      ),
     );
   }
 }
