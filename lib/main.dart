@@ -43,8 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: () {
              showDialog(context: context, builder: (context){
               return AlertDialog(
+                titlePadding: EdgeInsets.only(top: 20 ,left: 20),
                 title: Text("Title"),
                 content: Text("data data datadata"),
+                contentPadding: EdgeInsets.all(10),
+                contentTextStyle: TextStyle(fontSize: 20,color: Colors.red),
               );
 
              });
