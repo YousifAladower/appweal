@@ -41,13 +41,12 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           ElevatedButton(
             onPressed: () {
-             showDialog(context: context, builder: (context){
-              return AlertDialog(
-                title: Text("Title"),
-                content: Text("data data datadata"),
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: const Text("Hello Yousif"),
+                  duration: const Duration(seconds: 3),
+                ),
               );
-
-             });
             },
             child: const Text("Press Here"),
           ),
