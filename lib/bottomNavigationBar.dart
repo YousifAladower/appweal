@@ -24,9 +24,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-
- 
-
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -34,6 +31,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
 
 int selectedIndex=1;
+    List<Widget> widgetpages = [
+    Text("data1"),
+    Text("data2"),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +44,7 @@ int selectedIndex=1;
       drawer: Drawer( ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.white,
-        selectedLabelStyle: TextStyle(fontSize:   25),
+        selectedLabelStyle: TextStyle(fontSize:   10),
         currentIndex: selectedIndex,
         onTap: (index){
           setState(() {
@@ -55,8 +56,8 @@ int selectedIndex=1;
         BottomNavigationBarItem(label: "widget One",icon:Icon(Icons.ac_unit)),
         BottomNavigationBarItem(label: "widget TOW",icon:Icon(Icons.ac_unit)),
       ]),
-      body:Text("YAY")  
+      body:Text("dddddddddddddddddddddd")
 
     );
-  }
+  } 
 }
