@@ -43,10 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(),
       drawer: Drawer(),
-      body: ListView.separated(
-        separatorBuilder: (context,index){
-          return Divider(color: Colors.red,height: 20,);
-        },
+      body: ListView.builder(
         itemCount: items.length,
         itemBuilder: (context,i){
           return ListTile(title: Text(items[i]),);
