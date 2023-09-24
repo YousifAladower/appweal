@@ -44,21 +44,18 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(),
       drawer: Drawer(),
       body: Container(
-        child: ListView.custom(
-        childrenDelegate:
-         SliverChildBuilderDelegate((context,i)
-         {
-          return Container(
-            margin: EdgeInsets.all(10),
-            child: Text(items[i]),
-          );
-         },
-         childCount: items.length,
-         
+        child: GridView(
+        gridDelegate:
+         SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,
+         mainAxisSpacing: 10,crossAxisSpacing: 10),
+         children:List.generate(items.length, (index) =>Container(
+          child: Text(items[index]),
+          color: Colors.red,
+          height: 200,
+         ) ),
         ),
         padding: EdgeInsets.all(10),
 
-      )
       )
     );
   }

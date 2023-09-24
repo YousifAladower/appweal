@@ -43,23 +43,16 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(),
       drawer: Drawer(),
-      body: Container(
-        child: ListView.custom(
-        childrenDelegate:
-         SliverChildBuilderDelegate((context,i)
-         {
-          return Container(
-            margin: EdgeInsets.all(10),
-            child: Text(items[i]),
-          );
-         },
-         childCount: items.length,
-         
-        ),
-        padding: EdgeInsets.all(10),
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisExtent: 10,crossAxisSpacing: 10),
 
-      )
-      )
+        itemCount: items.length,
+        itemBuilder: (context,i){
+          return ListTile(
+            
+            title: Text(items[i]),);
+        }
+        )
     );
   }
 }
