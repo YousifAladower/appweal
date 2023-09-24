@@ -43,9 +43,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(),
       drawer: Drawer(),
-      body: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-
+      body: ListView.separated(
+        separatorBuilder: (context,index){
+          return Divider(color: Colors.red,height: 20,);
+        },
         itemCount: items.length,
         itemBuilder: (context,i){
           return ListTile(title: Text(items[i]),);
