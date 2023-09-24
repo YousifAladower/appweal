@@ -44,11 +44,13 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(),
       drawer: Drawer(),
       body: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisExtent: 10,crossAxisSpacing: 10),
 
         itemCount: items.length,
         itemBuilder: (context,i){
-          return ListTile(title: Text(items[i]),);
+          return ListTile(
+            
+            title: Text(items[i]),);
         }
         )
     );
