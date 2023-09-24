@@ -17,45 +17,38 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home:  MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
-  final String title;
+ 
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+    final List<String> items = [
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+    'Item 5',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       drawer: Drawer(),
-      body: Column(
-        children: [
-          ElevatedButton(
-            onPressed: () {
-             showDialog(context: context, builder: (context){
-              return AlertDialog(
-                titlePadding: EdgeInsets.only(top: 20 ,left: 20),
-                title: Text("Title"),
-                content: Text("data data datadata"),
-                contentPadding: EdgeInsets.all(10),
-                contentTextStyle: TextStyle(fontSize: 20,color: Colors.red),
-              );
-
-             });
-            },
-            child: const Text("Press Here"),
-          ),
-        ],
-      ),
+      body: ListView.builder(
+        itemCount: 5,
+        itemBuilder: (context,i){
+          return ListTile(title: Text("$items[i]"),);
+        }
+        )
     );
   }
 }
